@@ -1,4 +1,3 @@
-import DjangoVenv
 from facebook.members.models import Member
 
 member1 = Member(firstname='Emil', lastname='Refsnes')
