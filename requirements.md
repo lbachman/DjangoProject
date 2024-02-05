@@ -2,6 +2,9 @@
 ## Django
 - Windows: `py -m pip install Django`
 - Unix: `python -m pip install Django`
+## MySQL Connector 
+- Windows: `pip install mysql-connector-python`
+
 
 # Venv Commands
 - Install venv
@@ -10,6 +13,7 @@
 - Activate venv   
     - Unix: `source venv/bin/activate`
     - Windows: `\Scripts\activate.bat`
+        - Use this command to allow on powershell: `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
 - Deactivate venv
     - `deactivate`
     - `conda deactivate`
