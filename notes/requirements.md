@@ -5,8 +5,11 @@
 ## MySQL Connector 
 - Windows: `pip install mysql-connector-python`
 
+## mysqlclient
+- Windows: `pip install mysqlclient`
 
-# Venv Commands
+
+# Useful Virtual Environment Commands
 - Install venv
     - Unix: - `python -m venv myworld`
     - Windows: - `py -m venv myworld`
@@ -17,7 +20,7 @@
 - Deactivate venv
     - `deactivate`
     - `conda deactivate`
-### *Remember that the venv should be in the .gitignore file*
+### *Remember that the venv file should be specified in the .gitignore file*
 
 # Django Commands 
 - `django-admin startproject {project name}` creates the Django project
@@ -26,6 +29,7 @@
 - `py manage.py migrate` - unsure 
 - `py manage.py makemigrations {app name}` creates the table in the database (run command in root folder)
 - `py manage.py sqlmigrate {app name} {migration number ie 0001}` view sql statement executed from migration.
+- `py manage.py makemigrations`
 
 
 # Working with SQLite
