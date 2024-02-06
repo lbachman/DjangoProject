@@ -20,6 +20,11 @@
 - Deactivate venv
     - `deactivate`
     - `conda deactivate`
+- Create Requirements file
+    - `pip freeze > requirements.txt` generates requirements file 
+    - `pip install -r requirements.txt` installs all packages in requirements.txt file
+
+
 ### *Remember that the venv file should be specified in the .gitignore file*
 
 # Django Commands 
