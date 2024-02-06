@@ -5,7 +5,7 @@ CREATE TABLE facebook.member (
 );
 
 
-INSERT INTO facebook.member (firstname, lastname) VALUES
+INSERT INTO facebook.members_member (firstname, lastname) VALUES
     ('John', 'Doe'),
     ('Jane', 'Smith'),
     ('Michael', 'Johnson'),
