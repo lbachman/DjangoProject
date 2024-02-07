@@ -1,9 +1,8 @@
-CREATE TABLE facebook.member (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    firstname VARCHAR(255) NOT NULL,
-    lastname VARCHAR(255) NOT NULL
-);
-
+-- CREATE TABLE facebook.member (
+--     id INT AUTO_INCREMENT PRIMARY KEY,
+--     firstname VARCHAR(255) NOT NULL,
+--     lastname VARCHAR(255) NOT NULL
+-- );
 
 INSERT INTO facebook.members_member (firstname, lastname) VALUES
     ('John', 'Doe'),
