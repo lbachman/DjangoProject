@@ -4,11 +4,11 @@
 
 <h1>Members</h1>
   
-<form action="/get_member_by_username/" method="GET">
-    <label for="username">Enter Username:</label><br>
-    <input type="text" id="username" name="username" required><br><br>
-    <button type="submit">Submit</button>
-</form>
+<ul>
+  {% for member in members %}
+    <li>FirstName: {{ member.firstname }} LastName: {{ member.lastname }} UserName: {{member.username}}</li>
+  {% endfor %}
+</ul>
 
 </body>
 </html>

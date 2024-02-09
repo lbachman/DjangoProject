@@ -2,9 +2,13 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # this is the folder path
+    # get all members
     path('members/', views.GetMembers, name='GetMembers'),
-    path('members/', views.GetMemberByUserName, name='GetMemberByUserName')
+
+    # get by username
+    path('members/byusername/', views.GetMemberByUserName, name='GetMemberByUserName'),
+
+    # add a new member
+    path('members/add/', views.AddMember, name='AddMember')
+    
 ]
-
-

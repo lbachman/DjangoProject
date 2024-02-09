@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'facebook',
         'USER': 'root',
-        'PASSWORD': '110494',
+        'PASSWORD': 'Basscrunch@808',
         'HOST': '127.0.0.1',  # Set to your MySQL host
         'PORT': '3306',       # Set to your MySQL port (default is 3306)
     }
