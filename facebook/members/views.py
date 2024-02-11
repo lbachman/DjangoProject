@@ -95,4 +95,49 @@ def AddMember(request):
 
             return JsonResponse({'error': str(e)}, status=500)
     else:
-        return JsonResponse({'error': 'Unsupported method'}, status=405)    
+        return JsonResponse({'error': 'Unsupported method'}, status=405)
+
+# put request
+# updates member info based on username
+# http://localhost:8000/members/{username}/
+@csrf_exempt
+def UpdateMember(request, username):
+    if request.method == 'PUT':
+        try:
+            data = json.loads(request.body)
+        except json.JSONDecodeError:
+            return JsonResponse({'error': 'Invalid JSON data'}, status=400)
+
+        try:
+            member = Member.objects.get(username=username)
+            # Update member fields
+            for field in data:
+                setattr(member, field, data[field])
+            member.save()
+
+            return JsonResponse({'success': 'Member profile updated successfully'}, status=200)
+        except Member.DoesNotExist:
+            return JsonResponse({'error': 'Member not found'}, status=404)
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
+    else:
+        return JsonResponse({'error': 'Unsupported method'}, status=405)
+
+# delete request
+# deletes member info based on username
+# http://localhost:8000/members/{username}/
+
+@csrf_exempt
+def DeleteMember(request, username):
+    if request.method == 'DELETE':
+        try:
+            member = Member.objects.get(username=username)
+            member.delete()
+            return JsonResponse({'success': 'Member deleted successfully'}, status=200)
+        except Member.DoesNotExist:
+            return JsonResponse({'error': 'Member not found'}, status=404)
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
+    else:
+        return JsonResponse({'error': 'Unsupported method'}, status=405)
+  
