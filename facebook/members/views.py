@@ -17,7 +17,6 @@ import json
 #     # Render the template with the context
 #     return render(request, 'members/index.html', context)
 
-
 # get request 
 # returns list of members
 # http://localhost:8000/members/
