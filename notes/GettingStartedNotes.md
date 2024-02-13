@@ -1,3 +1,6 @@
+# Overview 
+This is a Django project that connects to a database and implements CRUD operations using Json. 
+
 # Requirements
 
 ## Django
@@ -35,7 +38,7 @@
 - `py manage.py sqlmigrate {app name} {migration number ie 0001}` view sql statement executed from migration.
 - `py manage.py makemigrations`
 
-# Working with SQLite
+# Working with SQLite (not currently used in this project)
 - `py manage.py shell` opens python shell
     - `from {app name}.models import {model name}` - imports model name
     - `member = Member(firstname='Logan', lastname='Bachman')` adds record to table
@@ -46,4 +49,16 @@
     - `x.delete()` deletes record from table
 
 # Working with MySQL
-
+- to establish connection to MySQL database, go to the *settings.py* file located in the project file and edit the following code: 
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': '{put schema name here}',
+        'USER': 'put user name here ie "root"',
+        'PASSWORD': '{password to server}',
+        'HOST': '127.0.0.1',  # Set to your MySQL host
+        'PORT': '3306',       # Set to your MySQL port (default is 3306)
+    }
+}
+```
