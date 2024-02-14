@@ -1,5 +1,5 @@
 # Overview 
-This is a Django project that connects to a database of members and implements CRUD operations and basic RESTful API standards. 
+This is a Django project designed to interact with a member database, facilitating Create, Read, Update, and Delete (CRUD) operations while adhering to basic RESTful API conventions.
 
 # Requirements
 
