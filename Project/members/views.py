@@ -3,18 +3,6 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 
-# # get request
-# def GetMembers(request):
-
-#     mymembers = Member.objects.all()
-
-#     # Pass the members to the template context
-#     context = {
-#         'members': mymembers,
-#     }
-#     # Render the template with the context
-#     return render(request, 'members/index.html', context)
-
 # get request 
 # returns list of members
 # http://localhost:8000/members/
@@ -55,7 +43,7 @@ def GetMemberByUserName(request):
                 }
                 return JsonResponse(member_data)
             except Member.DoesNotExist:
-                return JsonResponse({'error': 'User not found'}, status=404)
+                return JsonResponse({'error': 'Member not found'}, status=404)
         else:
             return JsonResponse({'error': 'Username parameter is missing'}, status=400)
     else:
@@ -87,7 +75,7 @@ def AddMember(request):
                 username=data['username']
             )
 
-            return JsonResponse({'success': 'User created successfully'}, status=201)
+            return JsonResponse({'success': 'Member created successfully'}, status=201)
         except Exception as e:
 
             return JsonResponse({'error': str(e)}, status=500)
