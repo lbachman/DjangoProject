@@ -12,6 +12,11 @@ This is a Django project designed to interact with a member database, facilitati
 ## mysqlclient
 - `pip install mysqlclient`
 
+## pip install django-cruds-adminlte
+## pip install djangorestframework
+
+
+
 
 # Useful Virtual Environment Commands
 - **Install venv**
@@ -73,3 +78,12 @@ DATABASES = {
     }
 }
 ```
+
+# Adding data to database
+- first create the models in the models page of the app
+- make sure to specify that the app is installed in the settings.py file under INSTALLED APPS
+- run `py manage.pymakemigrations {app name}` and then `py manage.py migrate`
+
+# Creating Controller
+- run `py manage.py cruds`
+
