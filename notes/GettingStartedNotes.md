@@ -87,3 +87,6 @@ DATABASES = {
 # Creating Controller
 - run `py manage.py cruds`
 
+# FrontEnd in React
+- 
+
