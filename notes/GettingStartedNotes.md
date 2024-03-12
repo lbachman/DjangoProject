@@ -88,5 +88,6 @@ DATABASES = {
 - run `py manage.py cruds`
 
 # FrontEnd in React
-- 
+- npm install react-scripts --save-dev
+
 
