@@ -10,5 +10,4 @@ router.register(r'likes', LikeViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('', include(people.urls)),
 ]

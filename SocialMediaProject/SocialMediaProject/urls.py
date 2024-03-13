@@ -12,7 +12,7 @@ router.register(r'likes', LikeViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),  # Admin URL
-    path('', include(router.urls)),   # Include API endpoints from router
+    path('api/', include('people.urls')),   # Include API endpoints from router
     # You can include additional URLs for your app here if needed
 ]
 

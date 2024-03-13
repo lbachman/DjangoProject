@@ -3,6 +3,8 @@ from django.shortcuts import render
 from rest_framework import serializers, viewsets
 from .models import User, Post, Comment, Like
 
+# http://127.0.0.1:8000/post
+
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User

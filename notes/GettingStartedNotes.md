@@ -1,19 +1,27 @@
+# Social Media App with React and Django
+
 # Overview 
-This is a Django project designed to interact with a member database, facilitating Create, Read, Update, and Delete (CRUD) operations while adhering to basic RESTful API conventions.
+This project aims to build a social media application where users can create profiles, post updates, follow other users, like and comment on posts, and engage in social interactions. The application will consist of a front end developed using React for the user interface and a back end implemented with Django to handle data storage, user authentication, and API endpoints.
 
-# Requirements
+## Requirements
 
-## Django
+### Django
 - `pip install Django`
 
-## MySQL Connector 
+### MySQL Connector 
 -  `pip install mysql-connector-python`
 
-## mysqlclient
+### mysqlclient
 - `pip install mysqlclient`
 
-## pip install django-cruds-adminlte
-## pip install djangorestframework
+### djangocruds
+- `pip install django-cruds-adminlte`
+
+### djangorestframework
+- `pip install djangorestframework`
+
+pip install django-cors-headers
+
 
 
 
@@ -89,5 +97,6 @@ DATABASES = {
 
 # FrontEnd in React
 - npm install react-scripts --save-dev
-
+- 
+- 
 
