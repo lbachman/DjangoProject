@@ -1,73 +1,44 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom'; // Import useHistory
+import { useHistory } from 'react-router-dom';
 
-const LoginPage = () => 
-{
-const [username, setUsername] = useState('');
-const [email, setEmail] = useState('');
-const [password, setPassword] = useState('');
-const [error, setError] = useState('');
-const [isRegistering, setIsRegistering] = useState(false);
-// const history = useHistory(); // Initialize useHistory
+const LoginPage = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [isRegistering, setIsRegistering] = useState(false);
+  const history = useHistory();
 
-const handleLogin = (e) => 
-{
-	
+  const handleLogin = (e) => {
     e.preventDefault();
+    
+    fetch('http://localhost:8000/api-token-auth/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.token) {
+          // Store the token in local storage or state
+          console.log('Login successful');
+          history.push('/'); // Redirect to home page after successful login
+        } else {
+          setError('Invalid username or password');
+        }
+      })
+      .catch(error => {
+        setError('Failed to login. Please try again later.');
+      });
+  };
 
-    // Here you would typically make an API request to authenticate the user
-
-
-
-    // For simplicity, let's just do a basic check here
-    if (username === 'logan' && password === 'password') 
-    {
-    	// Successful login logic (redirect, set authentication state, etc.)
-    	//history.push('/home'); // Redirect to home page upon successful login
-    	console.log('Login successful');
-    } 
-    else 
-    {
-    	setError('Invalid username or password');
-    }
-
-
-
-
-};
-
-const handleRegister = (e) => 
-{
+  const handleRegister = (e) => {
     e.preventDefault();
-
-
-
-    // Here you would typically make an API request to register the user
-    fetch('http://127.0.0.1:8000/api/users/', 
-    {
-		method: 'POST',
-		headers: {
-		'Content-Type': 'application/json',
-  		},
-  		body: JSON.stringify({
-    	username: username,
-    	email: email,
-    	password: password,
-  		}),
-	})
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .then(data => {
-    console.log('Success:', data);
-  })
-  .catch(error => {
-    console.error('Errorr:', error);
-  });
-
+    // Implement registration logic here
   };
 
   return (
@@ -84,15 +55,6 @@ const handleRegister = (e) =>
             required
           />
         </div>
-        {/* <div>
-          <label>Email:</label>
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div> */}
         <div>
           <label>Password:</label>
           <input
@@ -105,9 +67,7 @@ const handleRegister = (e) =>
         <button type="submit">{isRegistering ? 'Register' : 'Login'}</button>
       </form>
       <p>
-        {isRegistering
-          ? 'Already have an account?'
-          : 'Don\'t have an account?'}
+        {isRegistering ? 'Already have an account?' : "Don't have an account?"}
         <button onClick={() => setIsRegistering(!isRegistering)}>
           {isRegistering ? 'Login' : 'Register'}
         </button>

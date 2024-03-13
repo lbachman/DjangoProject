@@ -97,6 +97,7 @@ DATABASES = {
 
 # FrontEnd in React
 - npm install react-scripts --save-dev
-- 
+- npm install react-router-dom
+
 - 
 

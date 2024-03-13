@@ -1,9 +1,30 @@
 from django.shortcuts import render
-
 from rest_framework import serializers, viewsets
 from .models import User, Post, Comment, Like
+from django.contrib.auth import authenticate, login
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
-# http://127.0.0.1:8000/post
+@csrf_exempt
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        # Authenticate user
+        user = authenticate(username=username, password=password)
+
+        if user is not None:
+            # Login user
+            login(request, user)
+            return JsonResponse({'message': 'Login successful'})
+        else:
+            return JsonResponse({'error': 'Invalid username or password'}, status=400)
+    else:
+        return JsonResponse({'error': 'Only POST requests are allowed'}, status=405)
+
+
+
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
