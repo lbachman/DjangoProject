@@ -96,7 +96,7 @@ DATABASES = {
 - run `py manage.py cruds`
 
 # FrontEnd in React
-- npm install react-scripts --save-dev
+- npm install react-scripts --save-dev (this creates the node modules folder)
 - npm install react-router-dom
 
 - 

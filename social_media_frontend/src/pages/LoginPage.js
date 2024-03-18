@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isRegistering, setIsRegistering] = useState(false);
-  const history = useHistory();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -24,9 +22,6 @@ const LoginPage = () => {
       .then(response => response.json())
       .then(data => {
         if (data.token) {
-          // Store the token in local storage or state
-          console.log('Login successful');
-          history.push('/'); // Redirect to home page after successful login
         } else {
           setError('Invalid username or password');
         }

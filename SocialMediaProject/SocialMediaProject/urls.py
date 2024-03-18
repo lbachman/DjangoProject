@@ -15,5 +15,3 @@ urlpatterns = [
     path('api/', include('people.urls')),   # Include API endpoints from router
     # You can include additional URLs for your app here if needed
 ]
-
-# Remove the duplicated code block
