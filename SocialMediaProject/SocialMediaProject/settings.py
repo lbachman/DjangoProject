@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'people',
     'corsheaders',
     'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 REST_FRAMEWORK = {
@@ -88,7 +89,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'people',
         'USER': 'root',
-        'PASSWORD': 'Basscrunch@808',
+        'PASSWORD': '110494',
         'HOST': '127.0.0.1',  # Set to your MySQL host
         'PORT': '3306',       # Set to your MySQL port (default is 3306)
     }

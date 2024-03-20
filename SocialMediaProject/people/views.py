@@ -4,6 +4,9 @@ from .models import User, Post, Comment, Like
 from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.models import User
+import json
+
 
 @csrf_exempt
 def login_view(request):
@@ -20,6 +23,24 @@ def login_view(request):
             return JsonResponse({'message': 'Login successful'})
         else:
             return JsonResponse({'error': 'Invalid username or password'}, status=400)
+    else:
+        return JsonResponse({'error': 'Only POST requests are allowed'}, status=405)
+@csrf_exempt    
+def signup(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            username = data['username']
+            email = data['email']
+            password = data['password']
+
+            # Create user
+            user = User.objects.create_user(username=username, email=email, password=password)
+            user.save()
+
+            return JsonResponse({'message': 'User registered successfully'})
+        except KeyError:
+            return JsonResponse({'error': 'Invalid JSON data provided'}, status=400)
     else:
         return JsonResponse({'error': 'Only POST requests are allowed'}, status=405)
 
